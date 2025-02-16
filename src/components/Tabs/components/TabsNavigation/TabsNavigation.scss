@@ -2,8 +2,9 @@
   --tabsNavigationActiveButtonWidth: 0;
   --tabsNavigationActiveButtonOffsetLeft: 0;
   --tabsNavigationPadding: #{fluid-to-laptop(10, 8)};
+
   position: relative;
-  display: flex;
+  display: var(--tabsNavigationDisplay, flex);
   padding: var(--tabsNavigationPadding);
   background-color: var(--color-black-06);
   border: var(--border);
@@ -33,7 +34,10 @@
   }
 
   &__button {
+    flex-grow: 1;
     position: relative;
+    display: inline-flex;
+    justify-content: center;
     font-weight: 500;
     line-height: 1.5;
     padding: fluid-to-laptop(14, 12) fluid-to-laptop(24, 20);

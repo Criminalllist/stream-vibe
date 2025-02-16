@@ -9,10 +9,13 @@ const Tabs = (props) => {
     title,
     items = [],
     navigationTargetElementId =  null,
+    isEnableOnlyOnMobile = false,
   } = props;
 
   return (
-    <div className={classNames(className, 'tabs')}
+    <div className={classNames(className, 'tabs', {
+      'tabs--enable-only-on-mobile': isEnableOnlyOnMobile,
+    })}
          data-js-tabs={JSON.stringify({navigationTargetElementId})}>
 
       {!navigationTargetElementId && (

@@ -7,6 +7,25 @@
     }
   }
 
+  &__item {
+    width: auto;
+    height: auto;
+
+    &:has(.review-card){
+      .review-card {
+        height: 100%;
+      }
+    }
+  }
+
+  &__navigation {
+    margin-top: fluid(40, 24);
+
+    &.slider-navigation {
+      justify-content: center;
+    }
+  }
+
   &__scrollbar {
     @include abs-x;
     top: calc(100% + 24px);
@@ -16,10 +35,11 @@
     border-radius: 20px;
 
     &-drag {
-
       height: 100%;
       background-color: var(--color-red-45);
       border-radius: inherit;
     }
   }
+
+
 }
