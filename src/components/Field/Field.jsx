@@ -26,6 +26,8 @@ const Field = (props) => {
       extraAttrs['data-js-input-mask'] = mask;
     }
 
+    const fieldClass = 'field__control'
+
     return (
       <div
       className={classNames(className, 'field')}
@@ -42,9 +44,9 @@ const Field = (props) => {
         </label>
 
         <div className="field__body">
-          {renderBefore?.('field__control')}
+          {renderBefore?.(fieldClass)}
           <Component
-            className='field__control'
+            className={fieldClass}
             id={id}
             name={id}
             type={type}

@@ -137,5 +137,85 @@ export default defineConfig({
             indent_size: 2,
         },
     },
-    vite: {},
+    vite: {
+
+        build: {
+
+            cssCodeSplit: true,
+
+            cssTarget: "es6",
+
+            rollupOptions: {
+
+                output: {
+
+                    assetFileNames: (assetInfo) => {
+
+                        // CSS файлы сохраняются в assets/css
+
+                        if (assetInfo.name?.endsWith(".css")) {
+
+                            return "assets/css/[name].[ext]"
+
+                        }
+
+                        // Шрифты сохраняются в assets/fonts
+
+                        if (
+
+                          assetInfo.name?.endsWith(".woff") ||
+
+                          assetInfo.name?.endsWith(".woff2") ||
+
+                          assetInfo.name?.endsWith(".ttf") ||
+
+                          assetInfo.name?.endsWith(".otf") ||
+
+                          assetInfo.name?.endsWith(".eot")
+
+                        ) {
+
+                            return "assets/fonts/[name].[ext]"
+
+                        }
+
+                        // Изображения сохраняются в assets/images
+
+                        if (
+
+                          assetInfo.name?.endsWith(".png") ||
+
+                          assetInfo.name?.endsWith(".jpg") ||
+
+                          assetInfo.name?.endsWith(".jpeg") ||
+
+                          assetInfo.name?.endsWith(".gif") ||
+
+                          assetInfo.name?.endsWith(".svg") ||
+
+                          assetInfo.name?.endsWith(".webp")
+
+                        ) {
+
+                            return "assets/images/[name].[ext]"
+
+                        }
+
+                        // Все остальные ассеты сохраняются в assets
+
+                        return "assets/[name].[ext]"
+
+                    },
+
+                    chunkFileNames: "assets/js/[name].js", // JS файлы сохраняются в assets/js
+
+                    entryFileNames: "assets/js/[name].js", // Точки входа JS сохраняются в assets/js
+
+                },
+
+            },
+
+        },
+
+    },
 })

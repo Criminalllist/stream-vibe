@@ -54,9 +54,16 @@
     }
 
     &-link {
-      padding-right: fluid-to-laptop(20, 16);;
+
       &:not(:last-child) {
-        border-right: var(--border-width-s) solid var(--color-black-15);
+        align-items: center;
+
+        &::after {
+          content: '';
+          height: 1em;
+          margin-inline: fluid-to-laptop(20, 16);
+          border-right: var(--border);
+        }
       }
     }
   }
