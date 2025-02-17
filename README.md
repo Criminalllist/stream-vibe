@@ -1,2 +1,2 @@
-﻿# stream-vibe
+﻿# stream-vibe-dev
 
